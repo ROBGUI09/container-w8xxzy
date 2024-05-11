@@ -2,4 +2,8 @@
 
 set -ex
 
-exec /usr/sbin/smartdns -f -x
+exec ls /usr/sbin/smartdns
+exec ls /usr/bin/smartdns
+exec which smartdns
+
+exec smartdns -f -x
