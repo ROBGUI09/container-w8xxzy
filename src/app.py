@@ -1,8 +1,4 @@
-from flask import Flask, render_template
-from db import get_db, close_db
-import sqlalchemy
-from sqlalchemy import text
-from logger import log
+from flask import Flask
 
 app = Flask(__name__)
 app.teardown_appcontext(close_db)
