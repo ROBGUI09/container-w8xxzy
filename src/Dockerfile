@@ -4,7 +4,7 @@ FROM clux/muslrust:stable as rust
 RUN cargo install doh-proxy --no-default-features
 FROM scratch
 #FROM python:3-alpine
-COPY --from=rust /usr/local/cargo/bin/doh-proxy /usr/sbin/doh-proxy
+COPY --from=rust  /root/.cargo/bin/doh-proxy /usr/sbin/doh-proxy
 COPY --from=smartdns /usr/sbin/smartdns /usr/sbin/smartdns
 #ENV PYTHONUNBUFFERED=1
 #WORKDIR /etc/smartdns
