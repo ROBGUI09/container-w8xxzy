@@ -1,9 +1,6 @@
 # syntax=docker/dockerfile:1
-FROM python:3-alpine
-ENV PYTHONUNBUFFERED=1
-WORKDIR /usr/src/app
-COPY requirements.txt /usr/src/app/
-RUN pip install -U -r requirements.txt
-COPY ./web /usr/src/app/
+WORKDIR /etc/smartdns
+RUN mkdir -p /etc/smartdns
+COPY ./smartdns.conf /etc/smartdns/smartdns.conf
 COPY ./entrypoint.sh /
 ENTRYPOINT ["/entrypoint.sh"]
