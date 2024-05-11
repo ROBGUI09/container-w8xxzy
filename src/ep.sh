@@ -1,9 +1,5 @@
-#/bin/sh
+#/bin/bash
 
 set -ex
 
-exec ls /usr/sbin/smartdns
-exec ls /usr/bin/smartdns
-exec which smartdns
-
-exec smartdns -f -x
+exec bash -c "/usr/sbin/smartdns -f -x 2>&1"
