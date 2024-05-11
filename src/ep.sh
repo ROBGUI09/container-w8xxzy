@@ -2,6 +2,6 @@
 
 set -ex
 
-/usr/sbin/doh-proxy -H 'container-w8xxzy.containers.anotherwebservice.com' -u 127.0.0.1:53 -g 0.0.0.0 --listen-address 0.0.0.0:443 &
+exec gunicorn -w 4 -b '0.0.0.0:5000' --access-logfile=- 'app:app'
 
 exec /usr/sbin/smartdns -f -x 2>&1
