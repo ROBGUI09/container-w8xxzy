@@ -2,7 +2,7 @@
 FROM pymumu/smartdns:latest as smartdns
 FROM clux/muslrust:stable as rust
 RUN cargo install doh-proxy --no-default-features
-FROM scratch
+FROM alpine:latest
 #FROM python:3-alpine
 COPY --from=rust  /root/.cargo/bin/doh-proxy /usr/sbin/doh-proxy
 COPY --from=smartdns /usr/sbin/smartdns /usr/sbin/smartdns
