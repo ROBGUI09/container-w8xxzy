@@ -5,7 +5,7 @@ COPY --from=smartdns /usr/sbin/smartdns /usr/sbin/smartdns
 ENV PYTHONUNBUFFERED=1
 WORKDIR /etc/smartdns
 RUN mkdir -p /etc/smartdns
-RUN pip install -U Flask gunicorn
+RUN pip install -U Flask gunicorn requests
 COPY ./smartdns.conf /etc/smartdns
 COPY ./app.py /etc/smartdns
 COPY ./ep.sh /ep.sh
