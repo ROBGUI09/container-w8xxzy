@@ -12,7 +12,7 @@ services:
 #        source: ./src
 #        target: /etc/smartdns
     environment:
-      ALLOWED_HOSTS: "127.0.0.1,localhost"
+      ALLOWED_HOSTS: "127.0.0.1,localhost,0.0.0.0"
 
 #      DATABASE_URL: mysql2=//app_user=password@db=3306/app_database?pool=5&useUnicode=true&characterEncoding=UTF-8
 #      DB_ENGINE: django.db.backends.mysql
