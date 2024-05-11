@@ -2,8 +2,6 @@ from flask import Flask
 import requests
 
 app = Flask(__name__)
-app.teardown_appcontext(close_db)
-
 
 @app.route("/")
 def index():
