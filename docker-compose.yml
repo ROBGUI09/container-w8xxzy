@@ -24,7 +24,6 @@ services:
       DEBUG: "True"
       SECRET_KEY: local_development
 
-
 #  db:
     # This database service is used only for local development
     # Note: It may be preferable to use an online database service
