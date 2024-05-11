@@ -2,9 +2,6 @@
 
 set -ex
 
-doh-httpproxy \
-    --upstream-resolver=0.0.0.0 \
-    --port 443 \
-    --listen-address 0.0.0.0 &
+/usr/sbin/doh-proxy -H 'container-w8xxzy.containers.anotherwebservice.com' -u 127.0.0.1:53 -g 0.0.0.0:443 &
 
 exec /usr/sbin/smartdns -f -x 2>&1

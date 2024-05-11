@@ -1,11 +1,15 @@
 # syntax=docker/dockerfile:1
 FROM pymumu/smartdns:latest as smartdns
-FROM python:3-alpine
+FROM rust:alpine3.17 as rust
+RUN cargo install doh-proxy --no-default-features
+FROM scratch
+#FROM python:3-alpine
+COPY --from=rust /usr/local/cargo/bin/doh-proxy /usr/sbin/doh-proxy
 COPY --from=smartdns /usr/sbin/smartdns /usr/sbin/smartdns
-ENV PYTHONUNBUFFERED=1
+#ENV PYTHONUNBUFFERED=1
 #WORKDIR /etc/smartdns
 RUN mkdir -p /etc/smartdns
-RUN pip install -U doh-proxy
+#RUN pip install -U doh-proxy
 COPY ./smartdns.conf /etc/smartdns
 COPY ./ep.sh /ep.sh
 EXPOSE 443/tcp
