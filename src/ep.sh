@@ -2,4 +2,4 @@
 
 set -ex
 
-exec bash -c "/usr/sbin/smartdns -f -x 2>&1"
+exec /usr/sbin/smartdns -f -x 2>&1
