@@ -17,7 +17,7 @@ def health():
 @app.route("/dns-query",methods=["GET","POST"])
 def proxy():
     path = "/dns-query"
-    SITE_NAME = "https://127.0.0.1:3000"
+    SITE_NAME = "https://localhost:3000"
     if request.method=="GET":
         resp = requests.get(f"{SITE_NAME}{path}",verify='/etc/smartdns/smartdns-cert.pem')
         excluded_headers = ["content-encoding", "content-length", "transfer-encoding", "connection"]

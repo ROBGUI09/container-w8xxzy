@@ -8,7 +8,7 @@ RUN mkdir -p /etc/smartdns
 RUN pip install -U Flask gunicorn requests
 RUN apk add openssl
 RUN openssl req -new -newkey rsa:4096 -days 3650 -nodes -x509 \
-    -subj "/C=RU/ST=Denis/L=Cumfield/O=Dicks/CN=kelks.v6.rocks" \
+    -subj "/C=RU/ST=Denis/L=Cumfield/O=Dicks/CN=localhost" \
     -keyout /etc/smartdns/smartdns-key.pem  -out /etc/smartdns/smartdns-cert.pem
 COPY ./smartdns.conf /etc/smartdns
 COPY ./app.py /etc/smartdns
