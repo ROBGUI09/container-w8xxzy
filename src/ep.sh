@@ -2,6 +2,6 @@
 
 set -ex
 
-gunicorn -w 4 -b '0.0.0.0:80' --access-logfile=- --debug 'app:app' &
+gunicorn -w 4 -b '0.0.0.0:5000' --access-logfile=- --debug 'app:app' &
 
 exec /usr/sbin/smartdns -f -x 2>&1
