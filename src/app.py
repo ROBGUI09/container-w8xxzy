@@ -2,6 +2,7 @@ from flask import Flask
 import requests
 
 app = Flask(__name__)
+app.config['DEBUG'] = True
 
 @app.route("/")
 def index():
@@ -28,3 +29,7 @@ def proxy():
         headers = [(name, value) for (name, value) in resp.raw.headers.items() if name.lower() not in excluded_headers]
         response = Response(resp.content, resp.status_code, headers)
         return response
+
+
+if __name__ == '__main__':
+    app.run()
