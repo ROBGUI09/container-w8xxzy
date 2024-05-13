@@ -6,7 +6,7 @@ ENV PYTHONUNBUFFERED=1
 WORKDIR /etc/smartdns
 RUN mkdir -p /etc/smartdns
 RUN pip install -U Flask gunicorn requests
-RUN /bin/sh -c apk add --update openssl
+RUN apk add openssl
 COPY ./smartdns.conf /etc/smartdns
 COPY ./app.py /etc/smartdns
 COPY ./ep.sh /ep.sh
