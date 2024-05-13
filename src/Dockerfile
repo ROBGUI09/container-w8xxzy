@@ -9,5 +9,5 @@ RUN pip install -U Flask gunicorn requests
 COPY ./smartdns.conf /etc/smartdns
 COPY ./app.py /etc/smartdns
 COPY ./ep.sh /ep.sh
-EXPOSE 443/tcp
+EXPOSE 80/tcp
 ENTRYPOINT ["/ep.sh"]
